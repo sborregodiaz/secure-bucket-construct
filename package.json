@@ -2,7 +2,7 @@
   "name": "secure-bucket",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yvo.van.zee/secure-bucket.git"
+    "url": "https://github.com/yvthepief/secure-bucket.git"
   },
   "scripts": {
     "clobber": "npx projen clobber",
@@ -23,17 +23,18 @@
     "eslint": "npx projen eslint",
     "compat": "npx projen compat",
     "publish:npm": "npx projen publish:npm",
+    "publish:pypi": "npx projen publish:pypi",
     "docgen": "npx projen docgen",
     "release": "npx projen release",
     "projen": "npx projen"
   },
   "author": {
     "name": "Yvo van Zee",
-    "email": "yvo.van.zee@oblcc.com",
+    "email": "yvo@yvovanzee.nl",
     "organization": false
   },
   "devDependencies": {
-    "@aws-cdk/assert": "^1.95.2",
+    "@aws-cdk/assert": "^1.124.0",
     "@types/jest": "^27.0.2",
     "@types/node": "^14.17.0",
     "@typescript-eslint/eslint-plugin": "^4.32.0",
@@ -56,7 +57,17 @@
     "typescript": "^4.4.3"
   },
   "peerDependencies": {
+    "@aws-cdk/aws-iam": "^1.124.0",
+    "@aws-cdk/aws-kms": "^1.124.0",
+    "@aws-cdk/aws-s3": "^1.124.0",
+    "@aws-cdk/core": "^1.124.0",
     "constructs": "^3.2.27"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-iam": "^1.124.0",
+    "@aws-cdk/aws-kms": "^1.124.0",
+    "@aws-cdk/aws-s3": "^1.124.0",
+    "@aws-cdk/core": "^1.124.0"
   },
   "bundledDependencies": [],
   "keywords": [
@@ -108,7 +119,12 @@
   "stability": "stable",
   "jsii": {
     "outdir": "dist",
-    "targets": {},
+    "targets": {
+      "python": {
+        "distName": "cdk-secure-bucket",
+        "module": "cdk_secure_bucket"
+      }
+    },
     "tsc": {
       "outDir": "lib",
       "rootDir": "src"

@@ -1,12 +1,23 @@
 const { AwsCdkConstructLibrary } = require('projen');
 const project = new AwsCdkConstructLibrary({
   author: 'Yvo van Zee',
-  authorAddress: 'yvo.van.zee@oblcc.com',
-  cdkVersion: '1.95.2',
+  authorAddress: 'yvo@yvovanzee.nl',
+  cdkVersion: '1.124.0',
   defaultReleaseBranch: 'main',
   name: 'secure-bucket',
-  repositoryUrl: 'https://github.com/yvo.van.zee/secure-bucket.git',
+  repositoryUrl: 'https://github.com/yvthepief/secure-bucket.git',
 
+  cdkDependencies: [
+    '@aws-cdk/core',
+    '@aws-cdk/aws-iam',
+    '@aws-cdk/aws-kms',
+    '@aws-cdk/aws-s3',
+  ],
+
+  python: {
+    distName: 'cdk-secure-bucket',
+    module: 'cdk_secure_bucket',
+  },
   // cdkDependencies: undefined,      /* Which AWS CDK modules (those that start with "@aws-cdk/") does this library require when consumed? */
   // cdkTestDependencies: undefined,  /* AWS CDK modules required for testing. */
   // deps: [],                        /* Runtime dependencies of this module. */
