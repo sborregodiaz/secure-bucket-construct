@@ -6,7 +6,7 @@ const project = new AwsCdkConstructLibrary({
   defaultReleaseBranch: 'main',
   description: 'A CDK construct to create a Secure S3 Bucket for enterprise security frameworks',
   name: '@yvthepief/secure-bucket',
-  repositoryUrl: 'https://github.com/yvthepief/secure-bucket.git',
+  repositoryUrl: 'https://github.com/yvthepief/secure-bucket-construct.git',
 
   cdkDependencies: [
     '@aws-cdk/core',
