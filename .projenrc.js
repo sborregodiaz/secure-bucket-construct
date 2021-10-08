@@ -20,6 +20,7 @@ const project = new AwsCdkConstructLibrary({
     module: 'yvthepief.secure_bucket',
   },
   releaseEveryCommit: true,
+  releaseToNpm: true,
   // cdkDependencies: undefined,      /* Which AWS CDK modules (those that start with "@aws-cdk/") does this library require when consumed? */
   // cdkTestDependencies: undefined,  /* AWS CDK modules required for testing. */
   // deps: [],                        /* Runtime dependencies of this module. */
