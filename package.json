@@ -1,5 +1,5 @@
 {
-  "name": "@yvthepief/secure-bucket",
+  "name": "secure-bucket",
   "description": "A CDK construct to create a Secure S3 Bucket for enterprise security frameworks",
   "repository": {
     "type": "git",

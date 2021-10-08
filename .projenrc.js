@@ -5,7 +5,7 @@ const project = new AwsCdkConstructLibrary({
   cdkVersion: '1.124.0',
   defaultReleaseBranch: 'main',
   description: 'A CDK construct to create a Secure S3 Bucket for enterprise security frameworks',
-  name: '@yvthepief/secure-bucket',
+  name: 'secure-bucket',
   repositoryUrl: 'https://github.com/yvthepief/secure-bucket-construct.git',
 
   cdkDependencies: [
