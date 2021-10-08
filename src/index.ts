@@ -1,4 +1,4 @@
-// import { AnyPrincipal, Effect, PolicyStatement } from '@aws-cdk/aws-iam';
+
 import { Key } from '@aws-cdk/aws-kms';
 import { BlockPublicAccess, Bucket, BucketAccessControl, BucketEncryption, BucketProps } from '@aws-cdk/aws-s3';
 import { Construct } from '@aws-cdk/core';
@@ -9,9 +9,10 @@ export class SecureBucket extends Construct {
   constructor(scope: Construct, id: string, props?: BucketProps) {
     super(scope, id);
 
+    // Overrule Bucket Props with secure defaults and make them mandatory
     let newProps: BucketProps = {
       ...props,
-      encryption: props && props.encryption && props.encryption != BucketEncryption.UNENCRYPTED // || props.encryption === BucketEncryption.S3_MANAGED || props.encryption === BucketEncryption.KMS_MANAGED
+      encryption: props && props.encryption && props.encryption != BucketEncryption.UNENCRYPTED
         ? props.encryption
         : BucketEncryption.KMS,
       encryptionKey: new Key(this, `${id}-key`, { enableKeyRotation: true, trustAccountIdentities: true }),
@@ -22,6 +23,7 @@ export class SecureBucket extends Construct {
       serverAccessLogsPrefix: 'access-logs',
     };
 
+    // Create actual bucket
     this.bucket = new Bucket(this, `${id}-bucket`, newProps);
   }
 }

@@ -1,5 +1,6 @@
 {
-  "name": "secure-bucket",
+  "name": "@yvthepief/secure-bucket",
+  "description": "A CDK construct to create a Secure S3 Bucket for enterprise security frameworks",
   "repository": {
     "type": "git",
     "url": "https://github.com/yvthepief/secure-bucket.git"
@@ -121,8 +122,8 @@
     "outdir": "dist",
     "targets": {
       "python": {
-        "distName": "cdk-secure-bucket",
-        "module": "cdk_secure_bucket"
+        "distName": "yvthepief.secure-bucket",
+        "module": "yvthepief.secure_bucket"
       }
     },
     "tsc": {

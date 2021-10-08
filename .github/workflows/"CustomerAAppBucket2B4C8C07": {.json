@@ -1,0 +1,122 @@
+"CustomerAAppBucket2B4C8C07": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "AccessControl": "LogDeliveryWrite",
+        "BucketEncryption": {
+          "ServerSideEncryptionConfiguration": [
+            {
+              "ServerSideEncryptionByDefault": {
+                "KMSMasterKeyID": {
+                  "Fn::GetAtt": [
+                    "CustomerAAppKmsKeyBEA741D7",
+                    "Arn"
+                  ]
+                },
+                "SSEAlgorithm": "aws:kms"
+              }
+            }
+          ]
+        },
+        "LoggingConfiguration": {
+          "LogFilePrefix": "access-logs"
+        },
+        "PublicAccessBlockConfiguration": {
+          "BlockPublicAcls": true,
+          "BlockPublicPolicy": true,
+          "IgnorePublicAcls": true,
+          "RestrictPublicBuckets": true
+        },
+        "Tags": [
+          {
+            "Key": "Availability",
+            "Value": "2"
+          },
+          {
+            "Key": "Block Owner",
+            "Value": "AAC-GRID-CLUSTER 2-DATA ANALYTICS"
+          },
+          {
+            "Key": "Business Application CI",
+            "Value": "Clearing Data Platform"
+          },
+          {
+            "Key": "Confidentiality",
+            "Value": "2"
+          },
+          {
+            "Key": "Environment",
+            "Value": "DevTest"
+          },
+          {
+            "Key": "Integrity",
+            "Value": "2"
+          },
+          {
+            "Key": "Last Change",
+            "Value": "SNOW.5678-98"
+          },
+          {
+            "Key": "OAR/OPR ID",
+            "Value": "AAB.SYS.020454"
+          }
+        ],
+        "VersioningConfiguration": {
+          "Status": "Enabled"
+        }
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "aac-cdp-cdkpipeline/aac-cdp-devtest/Ingestion/CustomerA-App/Bucket/Resource"
+      }
+    },
+    "CustomerAAppBucketPolicy747FEB0F": {
+      "Type": "AWS::S3::BucketPolicy",
+      "Properties": {
+        "Bucket": {
+          "Ref": "CustomerAAppBucket2B4C8C07"
+        },
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "s3:*",
+              "Condition": {
+                "Bool": {
+                  "aws:SecureTransport": "false"
+                }
+              },
+              "Effect": "Deny",
+              "Principal": {
+                "AWS": "*"
+              },
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "CustomerAAppBucket2B4C8C07",
+                    "Arn"
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "CustomerAAppBucket2B4C8C07",
+                          "Arn"
+                        ]
+                      },
+                      "/*"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
+          "Version": "2012-10-17"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "aac-cdp-cdkpipeline/aac-cdp-devtest/Ingestion/CustomerA-App/Bucket/Policy/Resource"
+      }
+    },
