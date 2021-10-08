@@ -3,7 +3,7 @@
   "description": "A CDK construct to create a Secure S3 Bucket for enterprise security frameworks",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yvthepief/secure-bucket.git"
+    "url": "https://github.com/yvthepief/secure-bucket-construct.git"
   },
   "scripts": {
     "clobber": "npx projen clobber",
